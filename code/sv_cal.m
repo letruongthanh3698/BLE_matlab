@@ -7,7 +7,7 @@ close all
 %options = weboptions('RequestMethod','get','Timeout',6000);
 %data = webread(url,options);
 %data1= webread(url,options);
-load('data_sv_2020.04.09.14.21_cal_R1m.45.5_dynamic.adjust.mat')
+load('data_sv_2020.05.08.10.11_R1m.40_local_calculator_database.2020.05.08.mat')
 %load('data_esp_18_3_16_51_cal.mat')
 R1=-45.5;
 
@@ -142,76 +142,145 @@ else
 end
 radius=[d59; d93; dc2; dc0];
 
+t_min=time(1);
+t_max=time(length(time));
+t_step=datenum('01:00')-datenum('00:00');
+
 figure('Name','59')
 plot(time,tag59,'r',time,pathloss59,'b',time,gateway59,'g')
 legend({'TAG','PATHLOSS','GATEWAY'},'FontSize',11,'Location','northoutside');
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max])
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('RSSI (dBm)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 
 figure('Name','59 Delta')
 subplot(2,1,1);
 plot(t_,d59,'r',time,ref59,'b');
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max])
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Distance (m)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 subplot(2,1,2);
 plot(t_,del59);
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Error (m)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 
 figure('Name','93')
 plot(time,tag93,'r',time,pathloss93,'b',time,gateway93,'g')
 legend({'TAG','PATHLOSS','GATEWAY'},'FontSize',11,'Location','northoutside');
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('RSSI (dBm)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 
 figure('Name','93 Delta')
 subplot(2,1,1);
 plot(t_,d93,'r',time,ref93,'b');
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Distance (m)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 subplot(2,1,2);
 plot(t_,del93);
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Error (m)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 
 figure('Name','C2')
 plot(time,tagc2,'r',time,pathlossc2,'b',time,gatewayc2,'g')
 legend({'TAG','PATHLOSS','GATEWAY'},'FontSize',11,'Location','northoutside');
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('RSSI (dBm)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 
 figure('Name','C2 Delta')
 subplot(2,1,1);
 plot(t_,dc2,'r',time,refc2,'b');
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Distance (m)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 subplot(2,1,2);
 plot(t_,delc2);
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Error (m)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 
 figure('Name','C0')
 plot(time,tagc0,'r',time,pathlossc0,'b',time,gatewayc0,'g')
 legend({'TAG','PATHLOSS','GATEWAY'},'FontSize',11,'Location','northoutside');
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('RSSI (dBm)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 
 figure('Name','C0 Delta');
 subplot(2,1,1);
 plot(t_,dc0,'r',time,refc0,'b');
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Distance (m)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 subplot(2,1,2);
 plot(t_,delc0);
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Error (m)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 
 figure('Name','ERROR');
 plot(time,err);
-datetick('x','HH:MM','keepticks')
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Error (m)')
+ax = gca;
+ax.XTickLabelRotation = 15;
 grid on
 
-slider(length(count),point,radius,loc,time);
+%slider(length(count),point,radius,loc,time);
 
 %figure('Name','Distance')
 %plot(count, dis2,'y',count, dis2_kal,'r')
