@@ -1,11 +1,14 @@
-p_exp1=1.75;
-p_exp2=2;
-p_exp3=2.25;
+p_exp1=3;
+p_exp2=3.5;
+p_exp3=4;
 dis_static1=[];
 dis_static2=[];
 dis_static3=[];
 R1=-40;
-p_exp=pathloss_exp=-(pathloss-R1)./(10*log10(dis_pathloss));
+p_exp59=-(pathloss59-R1)./(10*log10(6.37));
+p_exp93=-(pathloss59-R1)./(10*log10(7.04));
+p_expc2=-(pathloss59-R1)./(10*log10(8.78));
+p_expc0=-(pathloss59-R1)./(10*log10(5.41));
 for i=1:1:length(tag93)
     dis_static1(i)=10.^((R1-(tag93(i)))./(10*p_exp1));
     dis_static2(i)=10.^((R1-(tag93(i)))./(10*p_exp2));
@@ -14,11 +17,33 @@ end
 
 figure('Name','Static Pathloss Exponent')
 plot(time,dis_static1,'r',time,dis_static2,'g',time,dis_static3,'b',time,d93,'k')
-legend({'Pathloss Exponent =1.75','Pathloss Exponent =2.00','Pathloss Exponent =2.25','Dynamic Pathloss Exponent'},'FontSize',11,'Location','northoutside');
+legend({'Pathloss Exponent =3.0','Pathloss Exponent =3.5','Pathloss Exponent =4.0','Dynamic Pathloss Exponent'},'FontSize',11,'Location','northoutside');
 set(gca,'xtick',[t_min:t_step:t_max]) 
 datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('Distacne (m)')
+ax = gca;
+ax.XTickLabelRotation = 30;
+grid on
+
+figure('Name','Dynamic Pathloss Exponent')
+plot(time,p_exp59,'r',time,p_exp93,'g',time,p_expc2,'r',time,p_expc0,'r',)
+legend({'Dynamic Pathloss Exponent'},'FontSize',11,'Location','northoutside');
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Pathloss Exponent')
+ax = gca;
+ax.XTickLabelRotation = 30;
+grid on
+
+figure('Name','Static Pathloss Exponent Custom')
+plot(time,dis_static2,'r',time,d93,'b')
+legend({'Pathloss Exponent = 3.5','Dynamic Pathloss Exponent'},'FontSize',11,'Location','northoutside');
+set(gca,'xtick',[t_min:t_step:t_max]) 
+datetick('x','yyyy-mm-dd  HH:MM','keepticks')
+xlabel('Time')
+ylabel('Pathloss Exponent')
 ax = gca;
 ax.XTickLabelRotation = 30;
 grid on
