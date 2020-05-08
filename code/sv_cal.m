@@ -3,11 +3,11 @@ close all
 
 %url = 'http://178.128.97.64:8080/rtls_list/getall';
 %url1= 'http://178.128.97.64:8080/rtlsbletest/getall';
-%url = 'http://localhost:5000/rtls_list/getall';
-%options = weboptions('RequestMethod','get','Timeout',6000);
-%data = webread(url,options);
+url = 'http://localhost:5000/rtls_list/getall';
+options = weboptions('RequestMethod','get','Timeout',6000);
+data = webread(url,options);
 %data1= webread(url,options);
-load('data_sv_2020.05.08.10.11_R1m.40_local_calculator_database.2020.05.08.mat')
+%load('data_sv_2020.05.08.10.11_R1m.40_local_calculator_database.2020.05.08.mat')
 %load('data_esp_18_3_16_51_cal.mat')
 R1=-45.5;
 
