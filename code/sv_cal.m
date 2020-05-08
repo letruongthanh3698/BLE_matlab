@@ -3,15 +3,15 @@ close all
 
 %url = 'http://178.128.97.64:8080/rtls_list/getall';
 %url1= 'http://178.128.97.64:8080/rtlsbletest/getall';
-url = 'http://localhost:5000/rtls_list/getall';
-options = weboptions('RequestMethod','get','Timeout',6000);
-data = webread(url,options);
+%url = 'http://localhost:5000/rtls_list/getall';
+%options = weboptions('RequestMethod','get','Timeout',6000);
+%data = webread(url,options);
 %data1= webread(url,options);
-%load('data_sv_2020.05.08.10.11_R1m.40_local_calculator_database.2020.05.08.mat')
+load('data_sv_2020.04.09.14.21_cal_R1m.45.5_dynamic.adjust.mat')
 %load('data_esp_18_3_16_51_cal.mat')
-R1=-45.5;
+R1=-40;
 
-IsAdjust=1;
+IsAdjust=0;
 
 tag59=zeros(length(data),1);
 pathloss59=zeros(length(data),1);
@@ -154,7 +154,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('RSSI (dBm)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 
 figure('Name','59 Delta')
@@ -165,7 +165,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('Distance (m)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 subplot(2,1,2);
 plot(t_,del59);
@@ -174,7 +174,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('Error (m)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 
 figure('Name','93')
@@ -185,7 +185,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('RSSI (dBm)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 
 figure('Name','93 Delta')
@@ -196,7 +196,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('Distance (m)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 subplot(2,1,2);
 plot(t_,del93);
@@ -205,7 +205,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('Error (m)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 
 figure('Name','C2')
@@ -216,7 +216,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('RSSI (dBm)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 
 figure('Name','C2 Delta')
@@ -227,7 +227,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('Distance (m)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 subplot(2,1,2);
 plot(t_,delc2);
@@ -236,7 +236,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('Error (m)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 
 figure('Name','C0')
@@ -247,7 +247,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('RSSI (dBm)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 
 figure('Name','C0 Delta');
@@ -258,7 +258,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('Distance (m)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 subplot(2,1,2);
 plot(t_,delc0);
@@ -267,7 +267,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('Error (m)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 
 figure('Name','ERROR');
@@ -277,7 +277,7 @@ datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('Error (m)')
 ax = gca;
-ax.XTickLabelRotation = 15;
+ax.XTickLabelRotation = 30;
 grid on
 
 %slider(length(count),point,radius,loc,time);
