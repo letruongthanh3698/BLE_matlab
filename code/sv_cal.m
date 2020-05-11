@@ -7,11 +7,11 @@ close all
 %options = weboptions('RequestMethod','get','Timeout',6000);
 %data = webread(url,options);
 %data1= webread(url,options);
-load('data_sv_2020.04.09.14.21_cal_R1m.45.5_dynamic.adjust.mat')
+load('data_sv_2020.05.10.20.25_R1m.40_local_calculator_database.2020.05.08_start.500_nogateway.mat')
 %load('data_esp_18_3_16_51_cal.mat')
 R1=-40;
 
-IsAdjust=0;
+IsAdjust=1;
 
 tag59=zeros(length(data),1);
 pathloss59=zeros(length(data),1);
@@ -69,10 +69,10 @@ for i=first+1:1:length(data)
     time(i-first)=datenum(t);
         
 end
-P=0.005;
-K=0;
-Q=0.005;
-R=5;
+%P=0.005;
+%K=0;
+%Q=0.005;
+%R=5;
 %for i=2:1:length(data)
 %    [P,K,tag59(i)]=estimate(tag59(i),P,K,Q,R,tag59(i-1));
 %    [P,K,pathloss59(i)]=estimate(pathloss59(i),P,K,Q,R,pathloss59(i-1));
@@ -150,6 +150,8 @@ figure('Name','59')
 plot(time,tag59,'r',time,pathloss59,'b',time,gateway59,'g')
 legend({'TAG','PATHLOSS','GATEWAY'},'FontSize',11,'Location','northoutside');
 set(gca,'xtick',[t_min:t_step:t_max])
+set(gca,'ytick',[-70:5:-40])
+ylim([-70 -40])
 datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('RSSI (dBm)')
@@ -181,6 +183,8 @@ figure('Name','93')
 plot(time,tag93,'r',time,pathloss93,'b',time,gateway93,'g')
 legend({'TAG','PATHLOSS','GATEWAY'},'FontSize',11,'Location','northoutside');
 set(gca,'xtick',[t_min:t_step:t_max]) 
+set(gca,'ytick',[-70:5:-40])
+ylim([-70 -40])
 datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('RSSI (dBm)')
@@ -212,6 +216,8 @@ figure('Name','C2')
 plot(time,tagc2,'r',time,pathlossc2,'b',time,gatewayc2,'g')
 legend({'TAG','PATHLOSS','GATEWAY'},'FontSize',11,'Location','northoutside');
 set(gca,'xtick',[t_min:t_step:t_max]) 
+set(gca,'ytick',[-70:5:-40])
+ylim([-70 -40])
 datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('RSSI (dBm)')
@@ -243,6 +249,8 @@ figure('Name','C0')
 plot(time,tagc0,'r',time,pathlossc0,'b',time,gatewayc0,'g')
 legend({'TAG','PATHLOSS','GATEWAY'},'FontSize',11,'Location','northoutside');
 set(gca,'xtick',[t_min:t_step:t_max]) 
+set(gca,'ytick',[-70:5:-40])
+ylim([-70 -40])
 datetick('x','yyyy-mm-dd  HH:MM','keepticks')
 xlabel('Time')
 ylabel('RSSI (dBm)')
