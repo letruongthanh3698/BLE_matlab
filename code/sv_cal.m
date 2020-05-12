@@ -7,7 +7,7 @@ close all
 %options = weboptions('RequestMethod','get','Timeout',6000);
 %data = webread(url,options);
 %data1= webread(url,options);
-load('data_sv_2020.05.10.20.25_R1m.40_local_calculator_database.2020.05.08_start.500_nogateway.mat')
+load('data_sv_2020.05.11.17.04_R1m.40_local_calculator_database.2020.05.11_start.500.mat')
 %load('data_esp_18_3_16_51_cal.mat')
 R1=-40;
 
@@ -144,7 +144,7 @@ radius=[d59; d93; dc2; dc0];
 
 t_min=time(1);
 t_max=time(length(time));
-t_step=datenum('01:00')-datenum('00:00');
+t_step=3*(datenum('01:00')-datenum('00:00'));
 
 figure('Name','59')
 plot(time,tag59,'r',time,pathloss59,'b',time,gateway59,'g')
