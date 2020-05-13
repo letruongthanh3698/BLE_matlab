@@ -16,5 +16,6 @@ function draw_daynight( point,value,time,sp)
         fill(x,y,c,'facealpha',0.1)
     end
     hold off
+    grid on
 end
 

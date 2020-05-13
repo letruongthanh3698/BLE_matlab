@@ -105,17 +105,9 @@ ylabel('RSSI')
 grid on
 
 if withkalman==0
-    T=table(count_mean',R_mean');
-    T.Properties.VariableNames={'Step_Gateway';'gateway'};
-    writetable(T,'improve_rssi.xlsx','Sheet','Sheet1','Range','M2')
-    
-    T=table(count_pathloss',R_pathloss_kal');
-    T.Properties.VariableNames={'Step_Pathloss';'Pathloss'};
-    writetable(T,'improve_rssi.xlsx','Sheet','Sheet1','Range','O2')
-    
-    T=table(count_tag',R_tag_kal');
-    T.Properties.VariableNames={'Step_Tag';'Tag'};
-    writetable(T,'improve_rssi.xlsx','Sheet','Sheet1','Range','Q2')
+    T=table(count_mean,R_mean);
+    T.Properties.VariableNames={'Time_Gateway';'Raw';'Mean'}
+    writetable(T,'improve_rssi.xlsx','Sheet','Sheet1','Range','H2')
 end
 
 %figure(2)

@@ -1,7 +1,7 @@
 close all
 s = get(0, 'ScreenSize');
 time_pause=0.00001;
-save=1; %choose to save or not
+save=0; %choose to save or not
 
 figure('Name','59','Position', [0 0 s(3) s(4)]);
 sp=subplot(1,1,1);
