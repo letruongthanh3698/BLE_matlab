@@ -1,7 +1,7 @@
 close all
 s = get(0, 'ScreenSize');
 time_pause=0.00001;
-save=0; %choose to save or not
+save=1; %choose to save or not
 
 figure('Name','59','Position', [0 0 s(3) s(4)]);
 sp=subplot(1,1,1);
@@ -19,6 +19,11 @@ ax.XTickLabelRotation = 30;
 pause(time_pause);
 name='R59';
 save_fig(name,save);
+if save==1
+    T=table(datestr(time,'yyyy-mm-dd ddd HH:MM:SS'),tag59,pathloss59,gateway59);
+    T.Properties.VariableNames={'Time_Tag';'Tag';'Pathloss';'Gateway'};
+    writetable(T,'no_adjust.xlsx','Sheet','Sheet1','Range','A2')
+end
 
 
 figure('Name','59 Delta','Position', [0 0 s(3) s(4)]);
@@ -45,6 +50,11 @@ ax.XTickLabelRotation = 30;
 pause(time_pause);
 name='Delta59';
 save_fig(name,save);
+if save==1
+    T=table(datestr(time,'yyyy-mm-dd ddd HH:MM:SS'),d59',ref59',del59');
+    T.Properties.VariableNames={'Time';'Distance';'Reference';'Error'};
+    writetable(T,'no_adjust.xlsx','Sheet','Sheet1','Range','F2')
+end
 
 figure('Name','93','Position', [0 0 s(3) s(4)]);
 sp=subplot(1,1,1);
@@ -62,6 +72,11 @@ ax.XTickLabelRotation = 30;
 pause(time_pause);
 name='R93';
 save_fig(name,save);
+if save==1
+    T=table(datestr(time,'yyyy-mm-dd ddd HH:MM:SS'),tag93,pathloss93,gateway93);
+    T.Properties.VariableNames={'Time_Tag';'Tag';'Pathloss';'Gateway'};
+    writetable(T,'no_adjust.xlsx','Sheet','Sheet1','Range','K2')
+end
 
 figure('Name','93 Delta','Position', [0 0 s(3) s(4)]);
 sp=subplot(2,1,1);
@@ -87,6 +102,11 @@ ax.XTickLabelRotation = 30;
 pause(time_pause);
 name='Delta93';
 save_fig(name,save);
+if save==1
+    T=table(datestr(time,'yyyy-mm-dd ddd HH:MM:SS'),d93',ref93',del93');
+    T.Properties.VariableNames={'Time';'Distance';'Reference';'Error'};
+    writetable(T,'no_adjust.xlsx','Sheet','Sheet1','Range','P2')
+end
 
 figure('Name','C2','Position', [0 0 s(3) s(4)]);
 sp=subplot(1,1,1);
@@ -104,6 +124,11 @@ ax.XTickLabelRotation = 30;
 pause(time_pause);
 name='RC2';
 save_fig(name,save);
+if save==1
+    T=table(datestr(time,'yyyy-mm-dd ddd HH:MM:SS'),tagc2,pathlossc2,gatewayc2);
+    T.Properties.VariableNames={'Time_Tag';'Tag';'Pathloss';'Gateway'};
+    writetable(T,'no_adjust.xlsx','Sheet','Sheet1','Range','U2')
+end
 
 figure('Name','C2 Delta','Position', [0 0 s(3) s(4)]);
 sp=subplot(2,1,1);
@@ -129,6 +154,11 @@ ax.XTickLabelRotation = 30;
 pause(time_pause);
 name='DeltaC2';
 save_fig(name,save);
+if save==1
+    T=table(datestr(time,'yyyy-mm-dd ddd HH:MM:SS'),dc2',refc2',delc2');
+    T.Properties.VariableNames={'Time';'Distance';'Reference';'Error'};
+    writetable(T,'no_adjust.xlsx','Sheet','Sheet1','Range','AA2')
+end
 
 figure('Name','C0','Position', [0 0 s(3) s(4)]);
 sp=subplot(1,1,1);
@@ -146,6 +176,11 @@ ax.XTickLabelRotation = 30;
 pause(time_pause);
 name='RC0';
 save_fig(name,save);
+if save==1
+    T=table(datestr(time,'yyyy-mm-dd ddd HH:MM:SS'),tagc0,pathlossc0,gatewayc0);
+    T.Properties.VariableNames={'Time_Tag';'Tag';'Pathloss';'Gateway'};
+    writetable(T,'no_adjust.xlsx','Sheet','Sheet1','Range','AF2')
+end
 
 figure('Name','C0 Delta','Position', [0 0 s(3) s(4)]);
 sp=subplot(2,1,1);
@@ -171,6 +206,11 @@ ax.XTickLabelRotation = 30;
 pause(time_pause);
 name='DeltaC0';
 save_fig(name,save);
+if save==1
+    T=table(datestr(time,'yyyy-mm-dd ddd HH:MM:SS'),dc0',refc0',delc0');
+    T.Properties.VariableNames={'Time';'Distance';'Reference';'Error'};
+    writetable(T,'no_adjust.xlsx','Sheet','Sheet1','Range','AK2')
+end
 
 figure('Name','ERROR','Position', [0 0 s(3) s(4)]);
 sp=subplot(1,1,1);
@@ -185,7 +225,11 @@ ax.XTickLabelRotation = 30;
 pause(time_pause);
 name='ERROR';
 save_fig(name,save);
-
+if save==1
+    T=table(datestr(time,'yyyy-mm-dd ddd HH:MM:SS'),err);
+    T.Properties.VariableNames={'Time';'ERROR_LOCATION'};
+    writetable(T,'no_adjust.xlsx','Sheet','Sheet1','Range','AP2')
+end
 %slider(length(count),point,radius,loc,time);
 
 %figure('Name','Distance')
